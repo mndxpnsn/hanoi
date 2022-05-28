@@ -8,16 +8,12 @@ public class Hanoi {
         // Move n disks from a to c via b
         int res = 0;
 
-        if(n == 0)
-            return 0;
-
         if(n > 0) {
             res += hanoi(n - 1, a, c, b);
             move(n, a, c);
             res += hanoi(n - 1, b, a, c);
+            res++;
         }
-
-        res++;
 
         return res;
     }
