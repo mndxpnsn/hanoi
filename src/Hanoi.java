@@ -4,7 +4,7 @@ public class Hanoi {
         System.out.println("move disc " + d + " from " + f + " to " + t);
     }
 
-    static int han(int n, String a, String b, String c) {
+    static int hanoi(int n, String a, String b, String c) {
         // Move n disks from a to c via b
         int res = 0;
 
@@ -12,9 +12,9 @@ public class Hanoi {
             return 0;
 
         if(n > 0) {
-            res += han(n - 1, a, c, b);
+            res += hanoi(n - 1, a, c, b);
             move(n, a, c);
-            res += han(n - 1, b, a, c);
+            res += hanoi(n - 1, b, a, c);
         }
 
         res++;
@@ -28,7 +28,7 @@ public class Hanoi {
         int n = 4;
 
         // Compute solution and number of moves
-        int num_moves = han(n, "A", "B", "C");
+        int num_moves = hanoi(n, "A", "B", "C");
 
         // Print results
         System.out.println("total number of moves: " + num_moves);
